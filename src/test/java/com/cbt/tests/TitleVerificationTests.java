@@ -1,5 +1,6 @@
 package com.cbt.tests;
 import com.cbt.utilities.BrowserFactory;
+import com.cbt.utilities.StringUtility;
 import org.openqa.selenium.WebDriver;
 
 import java.util.*;
@@ -18,53 +19,15 @@ public class TitleVerificationTests {
             titles.add(driver.getTitle());
             actualUrls.add(driver.getCurrentUrl());
         }
+        System.out.println("========== Verifying titles ===========");
+        StringUtility.verifyEquals(titles.get(0),titles.get(1));
+        StringUtility.verifyEquals(titles.get(0),titles.get(2));
+        StringUtility.verifyEquals(titles.get(1),titles.get(2));
 
-        if (titles.get(0).equals(titles.get(1))){
-            System.out.println("Title test Pass. Title is: " + titles.get(0));
-        }else {
-            System.out.println("Title test Fail");
-            System.out.println("title1 = " + titles.get(0));
-            System.out.println("title2 = " + titles.get(1));
-        }
-
-        if (titles.get(0).equals(titles.get(2))){
-            System.out.println("Title test Pass. Title is: " + titles.get(0));
-        }else {
-            System.out.println("Title test Fail");
-            System.out.println("title1 = " + titles.get(0));
-            System.out.println("title2 = " + titles.get(2));
-        }
-
-        if (titles.get(1).equals(titles.get(2))){
-            System.out.println("Title test Pass. Title is: " + titles.get(1));
-        }else {
-            System.out.println("Title test Fail");
-            System.out.println("title1 = " + titles.get(1));
-            System.out.println("title2 = " + titles.get(2));
-        }
-
-
-
-        if (actualUrls.get(0).startsWith("http://practice.cybertekschool.com")){
-            System.out.println("URL test PASS");
-        }else {
-            System.out.println("FAIL");
-            System.out.println("actualUrl = " + actualUrls.get(0));
-        }
-
-        if (actualUrls.get(1).startsWith("http://practice.cybertekschool.com")){
-            System.out.println("URL test PASS");
-        }else {
-            System.out.println("FAIL");
-            System.out.println("actualUrl = " + actualUrls.get(1));
-        }
-
-        if (actualUrls.get(2).startsWith("http://practice.cybertekschool.com")){
-            System.out.println("URL test PASS");
-        }else {
-            System.out.println("FAIL");
-            System.out.println("actualUrl = " + actualUrls.get(2));
-        }
+        System.out.println("========== Verifying urls that starts with http://practice.cybertekschool.com ===========");
+        StringUtility.verifyStartsWith(actualUrls.get(0),"http://practice.cybertekschool.com");
+        StringUtility.verifyStartsWith(actualUrls.get(1),"http://practice.cybertekschool.com");
+        StringUtility.verifyStartsWith(actualUrls.get(2),"http://practice.cybertekschool.com");
 
 
         driver.quit();

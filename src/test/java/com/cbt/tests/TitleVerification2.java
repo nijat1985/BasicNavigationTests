@@ -1,5 +1,6 @@
 package com.cbt.tests;
 import com.cbt.utilities.BrowserFactory;
+import com.cbt.utilities.StringUtility;
 import org.openqa.selenium.WebDriver;
 
 import java.util.*;
@@ -21,37 +22,10 @@ public class TitleVerification2 {
             actualUrls.add(driver.getCurrentUrl().toLowerCase().replace(" ", ""));
         }
 
-        if (actualUrls.get(0).contains(titles.get(0))){
-            System.out.println("PASS for --> " + actualUrls.get(0));
-        }else{
-            System.out.println("FAIL");
-            System.out.println("titles = " + titles.get(0));
-            System.out.println("actualUrls = " + actualUrls.get(0));
-        }
-
-        if(actualUrls.get(1).contains(titles.get(1))){
-            System.out.println("PASS for --> " + actualUrls.get(1));
-        }else{
-            System.out.println("FAIL");
-            System.out.println("titles = " + titles.get(1));
-            System.out.println("actualUrls = " + actualUrls.get(1));
-        }
-
-        if(actualUrls.get(2).contains(titles.get(2))){
-            System.out.println("PASS for --> " + actualUrls.get(2));
-        }else {
-            System.out.println("FAIL");
-            System.out.println("titles = " + titles.get(2));
-            System.out.println("actualUrls = " + actualUrls.get(2));
-        }
-
-        if(actualUrls.get(3).contains(titles.get(3))){
-            System.out.println("PASS for --> " + actualUrls.get(3));
-        }else{
-            System.out.println("FAIL");
-            System.out.println("titles = " + titles.get(3));
-            System.out.println("actualUrls = " + actualUrls.get(3));
-        }
+        StringUtility.verifyContains(actualUrls.get(0), titles.get(0));
+        StringUtility.verifyContains(actualUrls.get(1), titles.get(1));
+        StringUtility.verifyContains(actualUrls.get(2), titles.get(2));
+        StringUtility.verifyContains(actualUrls.get(3), titles.get(3));
 
         driver.quit();
 

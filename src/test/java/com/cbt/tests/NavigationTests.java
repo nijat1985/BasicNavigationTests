@@ -4,6 +4,9 @@ import com.cbt.utilities.BrowserFactory;
 import com.cbt.utilities.StringUtility;
 import org.openqa.selenium.WebDriver;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class NavigationTests {
     public static void navigation(String browser){
         WebDriver driver = BrowserFactory.getDriver(browser);
@@ -30,8 +33,9 @@ public class NavigationTests {
     }
 
     public static void main(String[] args) {
-        navigation("chrome");
-        navigation("firefox");
-        navigation("safari");
+        List<String> browsers = Arrays.asList("chrome", "firefox", "safari");
+        for(String browser : browsers){
+            navigation(browser);
+        }
     }
 }
