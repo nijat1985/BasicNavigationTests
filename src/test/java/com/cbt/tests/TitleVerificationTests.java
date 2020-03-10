@@ -19,21 +19,53 @@ public class TitleVerificationTests {
             actualUrls.add(driver.getCurrentUrl());
         }
 
-        if (titles.get(0).equals(titles.get(1)) && titles.get(1).equals(titles.get(2))){
-            System.out.println("Pass - all 3 titles are same");
+        if (titles.get(0).equals(titles.get(1))){
+            System.out.println("Title test Pass. Title is: " + titles.get(0));
         }else {
-            System.out.println("Fail");
-            System.out.println("titles = " + titles.toString());
+            System.out.println("Title test Fail");
+            System.out.println("title1 = " + titles.get(0));
+            System.out.println("title2 = " + titles.get(1));
         }
 
-        if (actualUrls.get(0).startsWith("http://practice.cybertekschool.com")
-            && actualUrls.get(1).startsWith("http://practice.cybertekschool.com")
-            && actualUrls.get(2).startsWith("http://practice.cybertekschool.com")){
-            System.out.println("PASS - all 3 URLs starts with --> http://practice.cybertekschool.com");
+        if (titles.get(0).equals(titles.get(2))){
+            System.out.println("Title test Pass. Title is: " + titles.get(0));
+        }else {
+            System.out.println("Title test Fail");
+            System.out.println("title1 = " + titles.get(0));
+            System.out.println("title2 = " + titles.get(2));
+        }
+
+        if (titles.get(1).equals(titles.get(2))){
+            System.out.println("Title test Pass. Title is: " + titles.get(1));
+        }else {
+            System.out.println("Title test Fail");
+            System.out.println("title1 = " + titles.get(1));
+            System.out.println("title2 = " + titles.get(2));
+        }
+
+
+
+        if (actualUrls.get(0).startsWith("http://practice.cybertekschool.com")){
+            System.out.println("URL test PASS");
         }else {
             System.out.println("FAIL");
-            System.out.println("actualUrls = " + actualUrls.toString());
+            System.out.println("actualUrl = " + actualUrls.get(0));
         }
+
+        if (actualUrls.get(1).startsWith("http://practice.cybertekschool.com")){
+            System.out.println("URL test PASS");
+        }else {
+            System.out.println("FAIL");
+            System.out.println("actualUrl = " + actualUrls.get(1));
+        }
+
+        if (actualUrls.get(2).startsWith("http://practice.cybertekschool.com")){
+            System.out.println("URL test PASS");
+        }else {
+            System.out.println("FAIL");
+            System.out.println("actualUrl = " + actualUrls.get(2));
+        }
+
 
         driver.quit();
 
