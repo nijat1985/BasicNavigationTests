@@ -21,12 +21,14 @@ public class NavigationTests {
 
         String expectedTitle = titleGoogle;
         String actualTitle = driver.getTitle();
+        System.out.println("7. Verify that title is same is in step 3");
         StringUtility.verifyEquals(expectedTitle,actualTitle);
 
         driver.navigate().forward();
 
         expectedTitle = titleEtsy;
         actualTitle = driver.getTitle();
+        System.out.println("9. Verify that title is same is in step 5");
         StringUtility.verifyEquals(expectedTitle,actualTitle);
 
         driver.quit();
